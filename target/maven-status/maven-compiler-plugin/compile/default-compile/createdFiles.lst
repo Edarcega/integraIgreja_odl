@@ -1,0 +1,16 @@
+com/ibjm/integraigreja/resources/UserResouces.class
+com/ibjm/integraigreja/domain/enums/StatusIgreja.class
+com/ibjm/integraigreja/services/UserService.class
+com/ibjm/integraigreja/domain/Igreja.class
+com/ibjm/integraigreja/IntegraigrejaApplication.class
+com/ibjm/integraigreja/resources/exception/StandardError.class
+com/ibjm/integraigreja/domain/Usuario.class
+com/ibjm/integraigreja/domain/dto/UsuarioDTO.class
+com/ibjm/integraigreja/repositories/IgrejaRepository.class
+com/ibjm/integraigreja/repositories/UserRepository.class
+com/ibjm/integraigreja/config/Instanciacao.class
+com/ibjm/integraigreja/services/IgrejaService.class
+com/ibjm/integraigreja/domain/enums/Perfil.class
+com/ibjm/integraigreja/services/exception/ObjectNotFoundException.class
+com/ibjm/integraigreja/resources/IgrejaResouces.class
+com/ibjm/integraigreja/resources/exception/ResourceExceptionHandler.class
