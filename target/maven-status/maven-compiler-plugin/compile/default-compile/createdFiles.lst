@@ -4,6 +4,7 @@ com/ibjm/integraigreja/services/UserService.class
 com/ibjm/integraigreja/domain/Igreja.class
 com/ibjm/integraigreja/IntegraigrejaApplication.class
 com/ibjm/integraigreja/resources/exception/StandardError.class
+com/ibjm/integraigreja/config/Security/SecurityConfig.class
 com/ibjm/integraigreja/domain/Usuario.class
 com/ibjm/integraigreja/domain/dto/UsuarioDTO.class
 com/ibjm/integraigreja/repositories/IgrejaRepository.class

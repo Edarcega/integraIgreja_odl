@@ -33,7 +33,11 @@ public class Instanciacao implements CommandLineRunner {
         userRepository.saveAll(Arrays.asList(Ivania, Edimar, Rocha));
 
         Igreja i1 = new Igreja(null, "Igreja Batista Jardim Maracana", "ibjm LTDA", "Batista", "52557860000124", "ibjm@gmail.com", "4199999999", "Rua Teste", 10, "83407-000", "Pastor Fulano", "Pastor Presidente", "000.000.000-00", "4199999999", StatusIgreja.ATIVO);
-        igrejaRepository.saveAll(Arrays.asList(i1));
-
+        Igreja i2 = new Igreja(null, "Igreja Batista Monte Castelo", null, "Batista", "08672159000164", "montecast@gmail.com", "(41) 9 9999-9999", "Rua Teste 2", 77, "83407-000", "Ivania Ramalhro", "Presidente", "000.002.114-01", "(41) 9 9999-9999", StatusIgreja.ATIVO);
+        Igreja i3 = new Igreja(null, "Igreja Batista Monte Castelo", null, "Batista", "08672159000164", "montecast@gmail.com", "(41) 9 9999-9999", "Rua Teste 2", 77, "83407-000", "Ivania Ramalhro", "Presidente", "000.002.114-01", "(41) 9 9999-9999", StatusIgreja.ATIVO);
+        Igreja i4 = new Igreja(null, "Igreja Batista Monte Castelo", null, "Batista", "08672159000164", "montecast@gmail.com", "(41) 9 9999-9999", "Rua Teste 2", 77, "83407-000", "Ivania Ramalhro", "Presidente", "000.002.114-01", "(41) 9 9999-9999", StatusIgreja.ATIVO);
+        Igreja i5 = new Igreja(null, "Igreja Batista Monte Castelo", null, "Batista", "08672159000164", "montecast@gmail.com", "(41) 9 9999-9999", "Rua Teste 2", 77, "83407-000", "Ivania Ramalhro", "Presidente", "000.002.114-01", "(41) 9 9999-9999", StatusIgreja.ATIVO);
+        Igreja i6 = new Igreja(null, "Igreja Batista Monte Castelo", null, "Batista", "08672159000164", "montecast@gmail.com", "(41) 9 9999-9999", "Rua Teste 2", 77, "83407-000", "Ivania Ramalhro", "Presidente", "000.002.114-01", "(41) 9 9999-9999", StatusIgreja.ATIVO);
+        igrejaRepository.saveAll(Arrays.asList(i1,i2,i3,i4,i5,i6));
     }
 }

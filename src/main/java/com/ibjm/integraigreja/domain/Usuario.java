@@ -1,7 +1,7 @@
 package com.ibjm.integraigreja.domain;
 
 import com.ibjm.integraigreja.domain.enums.Perfil;
-import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Id; // Verificar isso aqui
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serializable;
@@ -11,13 +11,13 @@ import java.util.Objects;
 @Document
 public class Usuario implements Serializable {
     private static final long serialVersionUID = 1L;
-    private String id;
-    private String nome;
-    private String email;
-    private String telefone;
-    private String cpf;
+    protected String id;
+    protected String nome;
+    protected String email;
+    protected String telefone;
+    protected String cpf;
     private String pwd;
-    private Perfil perfil;
+    protected Perfil perfil;
 
     public Usuario() {
     }
