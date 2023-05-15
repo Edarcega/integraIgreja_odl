@@ -35,8 +35,20 @@ public class UserService {
         repository.deleteById(id);
     }
 
+    public Usuario atualiza(String id, Usuario usuario) {
+        Usuario newUsuario = consultarPorId(id);
+        atualizarDados(newUsuario, usuario);
+        return repository.save(newUsuario);
+    }
+
+    private void atualizarDados(Usuario newUsuario, Usuario usuario) {
+        newUsuario.setEmail(usuario.getEmail());
+        newUsuario.setPwd(usuario.getPwd());
+        newUsuario.setPerfil(usuario.getPerfil());
+    }
+
     public Usuario fromDTO(UsuarioDTO objDto) {
-        return new Usuario(objDto.getId(), objDto.getNome(), objDto.getEmail(), objDto.getTelefone(), objDto.getCpf(), objDto.getPerfil());
+        return new Usuario(objDto.getId(), objDto.getEmail(),objDto.getPerfil());
     }
 
 

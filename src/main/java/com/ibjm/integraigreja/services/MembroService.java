@@ -25,4 +25,42 @@ public class MembroService {
         return membro.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado"));
     }
 
+    public Membro inserir(Membro obj) {
+        return membroRepository.insert(obj);
+    }
+
+    public Membro atualiza(String id, Membro membro) {
+        Membro newMembro = consultarPorId(id);
+        atualizarDados(newMembro, membro);
+        return membroRepository.save(newMembro);
+    }
+
+    private void atualizarDados(Membro newMembro, Membro membro) {
+        newMembro.setNome(membro.getNome());
+        newMembro.setCpf(membro.getCpf());
+        newMembro.setIdentidade(membro.getIdentidade());
+        newMembro.setSexo(membro.getSexo());
+        newMembro.setDataDeNascimento(membro.getDataDeNascimento());
+        newMembro.setNascionalidade(membro.getNascionalidade());
+        newMembro.setEndereco(membro.getEndereco());
+        newMembro.setNumero(membro.getNumero());
+        newMembro.setNomeDoPai(membro.getNomeDoPai());
+        newMembro.setNomeDaMae(membro.getNomeDaMae());
+        newMembro.setProfissao(membro.getProfissao());
+        newMembro.setEstadoCivil(membro.getEstadoCivil());
+        newMembro.setConjuge(membro.getConjuge());
+        newMembro.setDataDoCasamento(membro.getDataDoCasamento());
+        newMembro.setPossuiFilhos(membro.getPossuiFilhos());
+        newMembro.setPortadorDeNecessidadesEspeciais(membro.getPortadorDeNecessidadesEspeciais());
+        newMembro.setDetalhamentoPne(membro.getDetalhamentoPne());
+        newMembro.setFilhos(membro.getFilhos());
+        newMembro.setDataCadastro(membro.getDataCadastro());
+        newMembro.setDataDaInscricao(membro.getDataDaInscricao());
+        newMembro.setBatizado(membro.getBatizado());
+        newMembro.setIgrejaAnterior(membro.getIgrejaAnterior());
+        newMembro.setIgreja(membro.getIgreja());
+        newMembro.setTipoMembro(membro.getTipoMembro());
+        newMembro.setFuncoes(membro.getFuncoes());
+    }
+
 }

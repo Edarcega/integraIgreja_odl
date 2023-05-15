@@ -1,15 +1,22 @@
 package com.ibjm.integraigreja.domain;
 
 import com.ibjm.integraigreja.domain.enums.StatusIgreja;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-@Setter
 @Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Document
 public class Igreja implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -27,30 +34,14 @@ public class Igreja implements Serializable {
     private String cpfresponsavel;
     private String telefoneresponsavel;
     private StatusIgreja statusIgreja;
-    private List<Membro> membros;
-
-    public Igreja() {
-    }
-
-    public Igreja(String id, String nome, String razaosocial, String denominação, String cnpj, String email, String telefone,
-                  Endereco endereço, String numero, String responsavel, String cargo, String cpfresponsavel, String telefoneresponsavel,
-                  StatusIgreja statusIgreja, List<Membro> membros) {
-        this.id = id;
-        this.nome = nome;
-        this.razaosocial = razaosocial;
-        this.denominação = denominação;
-        this.cnpj = cnpj;
-        this.email = email;
-        this.telefone = telefone;
-        this.endereço = endereço;
-        this.numero = numero;
-        this.responsavel = responsavel;
-        this.cargo = cargo;
-        this.cpfresponsavel = cpfresponsavel;
-        this.telefoneresponsavel = telefoneresponsavel;
-        this.statusIgreja = statusIgreja;
-        this.membros = membros;
-    }
+    @DBRef(lazy = true)
+    private List<Membro> membros = new ArrayList<>();
+    @DBRef(lazy = true)
+    private List<Grupo> grupos = new ArrayList<>();
+    @DBRef(lazy = true)
+    private List<Classe> classes = new ArrayList<>();
+    @DBRef(lazy = true)
+    private List<Filial> filiais = new ArrayList<>();
 
     @Override
     public boolean equals(Object o) {
