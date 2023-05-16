@@ -1,10 +1,17 @@
 package com.ibjm.integraigreja.domain;
 
+import com.ibjm.integraigreja.domain.dto.IgrejaDTO;
+import com.ibjm.integraigreja.domain.dto.MembroDTO;
+import com.ibjm.integraigreja.domain.enums.StatusGrupo;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -16,9 +23,9 @@ public class Grupo {
 
     private String id;
     private String Nome;
-    private Igreja igreja;
-    private Membro lider;
-    private Membro viceLider;
-
+    private IgrejaDTO igreja;
+    private MembroDTO lider;
+    private List<MembroDTO> participantes = new ArrayList<>();
+    private StatusGrupo statusGrupo;
 
 }

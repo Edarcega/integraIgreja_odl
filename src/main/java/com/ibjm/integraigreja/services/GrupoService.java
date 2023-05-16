@@ -1,6 +1,7 @@
 package com.ibjm.integraigreja.services;
 
 import com.ibjm.integraigreja.domain.Grupo;
+import com.ibjm.integraigreja.domain.Grupo;
 import com.ibjm.integraigreja.repositories.GrupoRepository;
 import com.ibjm.integraigreja.services.exception.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,15 @@ public class GrupoService {
     public Grupo consultarPorId(String id) {
         Optional<Grupo> grupo = grupoRepository.findById(id);
         return grupo.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado"));
+    }
+
+    public Grupo inserir(Grupo obj) {
+        return grupoRepository.insert(obj);
+    }
+
+    public void delete(String id) {
+        consultarPorId(id);
+        grupoRepository.deleteById(id);
     }
 
 }

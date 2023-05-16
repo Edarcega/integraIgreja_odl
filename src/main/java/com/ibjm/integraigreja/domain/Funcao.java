@@ -1,5 +1,6 @@
 package com.ibjm.integraigreja.domain;
 
+import com.ibjm.integraigreja.domain.dto.IgrejaDTO;
 import com.ibjm.integraigreja.domain.enums.TipoFuncao;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -20,6 +21,6 @@ public class Funcao {
     private String id;
     private String descricao;
     private TipoFuncao tipoFuncao;
-    private Date dataCadastro;
+    private IgrejaDTO igrejaDTO;
 
 }

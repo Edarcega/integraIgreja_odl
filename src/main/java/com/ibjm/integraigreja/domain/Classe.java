@@ -1,10 +1,13 @@
 package com.ibjm.integraigreja.domain;
 
+import com.ibjm.integraigreja.domain.dto.IgrejaDTO;
+import com.ibjm.integraigreja.domain.dto.MembroDTO;
 import com.ibjm.integraigreja.domain.enums.TipoClasse;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
@@ -20,11 +23,13 @@ public class Classe {
 
     private String id;
     private String Nome;
-    private Igreja igreja;
+    private IgrejaDTO igreja;
     private TipoClasse tipoClasse;
-    private Membro professor;
-    private List<Membro> alunosMembro;
-    private List<Pessoa> alunosGen;
+    private MembroDTO professor;
+    @DBRef(lazy = true)
+    private List<MembroDTO> alunosMembro;
+    @DBRef(lazy = true)
+    private List<Pessoa> alunosDiscipulandos;
     private Date dataCriacao;
 
 }

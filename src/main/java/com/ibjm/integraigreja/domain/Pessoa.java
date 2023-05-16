@@ -5,8 +5,10 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -15,8 +17,8 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Document
-public class Pessoa {
-
+public class Pessoa implements Serializable {
+    private static final long serialVersionUID = 1L;
     private String id;
     private String nome;
     private String cpf;
@@ -35,8 +37,8 @@ public class Pessoa {
     private Boolean possuiFilhos;
     private Boolean portadorDeNecessidadesEspeciais;
     private String detalhamentoPne;
-    private List<Pessoa> filhos;
-
+    @DBRef(lazy = true)
+    private List<Filho> filhos;
     private Date dataCadastro;
 
 }

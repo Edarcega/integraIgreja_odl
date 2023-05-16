@@ -1,6 +1,10 @@
 package com.ibjm.integraigreja.domain;
 
 import com.ibjm.integraigreja.domain.enums.Perfil;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -8,93 +12,21 @@ import java.io.Serializable;
 import java.util.Objects;
 
 /*@Document(collection = "pessoa")*/
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Document
 public class Usuario implements Serializable {
     private static final long serialVersionUID = 1L;
     private String id;
-    private String nome;
     private String email;
-    private String telefone;
-    private String cpf;
-    private String pwd;
     private Perfil perfil;
+    private String pwd;
 
-    public Usuario() {
-    }
-
-    public Usuario(String id, String nome, String email, String telefone, String cpf, String pwd, Perfil perfil) {
+    public Usuario(String id, String email, Perfil perfil) {
         this.id = id;
-        this.nome = nome;
         this.email = email;
-        this.telefone = telefone;
-        this.cpf = cpf;
-        this.pwd = pwd;
-        this.perfil = perfil;
-    }
-
-    //Sobrecarga sem pwd
-    public Usuario(String id, String nome, String email, String telefone, String cpf, Perfil perfil) {
-        this.id = id;
-        this.nome = nome;
-        this.email = email;
-        this.telefone = telefone;
-        this.cpf = cpf;
-        this.perfil = perfil;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
-
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
-    public String getPwd() {
-        return pwd;
-    }
-
-    public void setPwd(String pwd) {
-        this.pwd = pwd;
-    }
-
-    public Perfil getPerfil() {
-        return perfil;
-    }
-
-    public void setPerfil(Perfil perfil) {
         this.perfil = perfil;
     }
 
