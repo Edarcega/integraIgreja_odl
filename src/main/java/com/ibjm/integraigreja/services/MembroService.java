@@ -63,4 +63,9 @@ public class MembroService {
         newMembro.setFuncoes(membro.getFuncoes());
     }
 
+    public void delete(String id) {
+        consultarPorId(id);
+        membroRepository.deleteById(id);
+    }
+
 }

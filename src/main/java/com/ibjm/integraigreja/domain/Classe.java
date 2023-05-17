@@ -2,6 +2,7 @@ package com.ibjm.integraigreja.domain;
 
 import com.ibjm.integraigreja.domain.dto.IgrejaDTO;
 import com.ibjm.integraigreja.domain.dto.MembroDTO;
+import com.ibjm.integraigreja.domain.enums.StatusClasse;
 import com.ibjm.integraigreja.domain.enums.TipoClasse;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -26,10 +27,7 @@ public class Classe {
     private IgrejaDTO igreja;
     private TipoClasse tipoClasse;
     private MembroDTO professor;
-    @DBRef(lazy = true)
-    private List<MembroDTO> alunosMembro;
-    @DBRef(lazy = true)
-    private List<Pessoa> alunosDiscipulandos;
-    private Date dataCriacao;
+    private List<MembroDTO> alunos;
+    private StatusClasse statusClasse;
 
 }

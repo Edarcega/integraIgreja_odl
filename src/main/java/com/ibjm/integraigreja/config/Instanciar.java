@@ -40,11 +40,11 @@ public class Instanciar implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        userRepository.deleteAll();
-        filhoRepository.deleteAll();
-        membroRepository.deleteAll();
-        igrejaRepository.deleteAll();
-        grupoRepository.deleteAll();
+//        userRepository.deleteAll();
+//        filhoRepository.deleteAll();
+//        membroRepository.deleteAll();
+//        igrejaRepository.deleteAll();
+//        grupoRepository.deleteAll();
 
 
 //        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");

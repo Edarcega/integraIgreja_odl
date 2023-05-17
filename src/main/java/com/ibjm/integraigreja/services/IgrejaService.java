@@ -37,6 +37,7 @@ public class IgrejaService {
     }
 
     private void atualizarDados(Igreja newIgrega, Igreja igreja) {
+        // Verificar como fazer para alterar parcial, atualmente é necessário passar o objeto completo para não excluir dados
         newIgrega.setNome(igreja.getNome());
         newIgrega.setRazaosocial(igreja.getRazaosocial());
         newIgrega.setDenominação(igreja.getDenominação());
