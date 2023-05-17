@@ -57,9 +57,8 @@ public class UserResouces {
 
     @PutMapping(value = "/{id}")
     public ResponseEntity<Void> atualiza(@RequestBody Usuario usuario, @PathVariable String id) {
-        Usuario obj = obj = service.atualiza(id, usuario);
+        Usuario obj = service.atualiza(id, usuario);
         return ResponseEntity.noContent().build();
     }
-
 
 }

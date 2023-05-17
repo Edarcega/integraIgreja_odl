@@ -61,7 +61,7 @@ public class IgrejaResouces {
 
     @PutMapping(value = "/{id}")
     public ResponseEntity<Void> atualiza(@RequestBody Igreja igreja, @PathVariable String id) {
-        Igreja obj = obj = service.atualiza(id, igreja);
+        Igreja obj = service.atualiza(id, igreja);
         return ResponseEntity.noContent().build();
     }
 
