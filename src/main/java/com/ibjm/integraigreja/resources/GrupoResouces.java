@@ -1,8 +1,7 @@
 package com.ibjm.integraigreja.resources;
 
+import com.ibjm.integraigreja.domain.*;
 import com.ibjm.integraigreja.domain.Grupo;
-import com.ibjm.integraigreja.domain.Grupo;
-import com.ibjm.integraigreja.domain.Igreja;
 import com.ibjm.integraigreja.domain.dto.IgrejaDTO;
 import com.ibjm.integraigreja.domain.dto.MembroDTO;
 import com.ibjm.integraigreja.domain.enums.StatusGrupo;
@@ -48,12 +47,30 @@ public class GrupoResouces {
     public ResponseEntity<Void> insert(@RequestBody Grupo grupo) {
         Igreja igreja = igrejaService.consultarPorId(grupo.getIgreja().getId());
 
-        Grupo newGrupo = new Grupo(null, grupo.getNome(), new IgrejaDTO(igreja), new MembroDTO(membroService.consultarPorId(grupo.getLider().getId())), new ArrayList<>(), StatusGrupo.ATIVO);
+        Grupo newGrupo = new Grupo(null, grupo.getNome(), new IgrejaDTO(igreja), grupo.getLider(), new ArrayList<>(), StatusGrupo.ATIVO);
         grupo = service.inserir(newGrupo);
         igreja.getGrupos().add(grupo);
         igrejaService.atualiza(igreja.getId(), igreja);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(grupo.getId()).toUri();
         return ResponseEntity.created(uri).build();
+    }
+
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<Void> atualiza(@RequestBody Grupo grupo, @PathVariable String id) {
+        Grupo obj = service.atualiza(id, grupo);
+        return ResponseEntity.noContent().build();
+    }
+
+    @PutMapping(value = "/inserirparticipante/{id}")
+    public ResponseEntity<Void> inserirparticipante(@RequestBody Grupo grupo, @PathVariable String id) {
+        Grupo obj = service.inserirparticipante(id, grupo);
+        return ResponseEntity.noContent().build();
+    }
+
+    @PutMapping(value = "/inserirlider/{id}")
+    public ResponseEntity<Void> inserirlider(@RequestBody Grupo grupo, @PathVariable String id) {
+        Grupo obj = service.inserirlider(id, grupo);
+        return ResponseEntity.noContent().build();
     }
 
     @DeleteMapping(value = "/{id}")
