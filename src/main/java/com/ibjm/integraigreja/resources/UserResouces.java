@@ -1,7 +1,9 @@
 package com.ibjm.integraigreja.resources;
 
+import com.ibjm.integraigreja.domain.Membro;
 import com.ibjm.integraigreja.domain.Usuario;
 import com.ibjm.integraigreja.domain.dto.UsuarioDTO;
+import com.ibjm.integraigreja.services.MembroService;
 import com.ibjm.integraigreja.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -18,6 +20,9 @@ public class UserResouces {
 
     @Autowired
     private UserService service;
+
+    @Autowired
+    private MembroService membroService;
 
     @GetMapping
     public ResponseEntity<List<UsuarioDTO>> consultarTodos() {
@@ -43,8 +48,19 @@ public class UserResouces {
 
     @PostMapping
     public ResponseEntity<Void> insert(@RequestBody Usuario usuario) {
-        Usuario newUsuario = new Usuario(null, usuario.getEmail(), usuario.getPerfil(), usuario.getPwd());
-        usuario = service.inserir(newUsuario);
+        Membro membro = null;
+        Usuario newUsuario = new Usuario(null, usuario.getEmail(), usuario.getPerfil(), usuario.getPwd(), usuario.getMembroId());
+        String idMembro = usuario.getMembroId();
+        if (idMembro != null || idMembro != "") {
+            membro = membroService.consultarPorId(idMembro);
+            newUsuario.setMembroId(idMembro);
+            usuario = service.inserir(newUsuario);
+            membro.setUsuario(usuario);
+            membroService.atualiza(idMembro, membro);
+        } else {
+            usuario = service.inserir(newUsuario);
+        }
+
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(usuario.getId()).toUri();
         return ResponseEntity.created(uri).build();
     }

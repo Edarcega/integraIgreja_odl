@@ -45,11 +45,7 @@ public class UserService {
         newUsuario.setEmail(usuario.getEmail());
         newUsuario.setPwd(usuario.getPwd());
         newUsuario.setPerfil(usuario.getPerfil());
+        newUsuario.setMembroId(usuario.getMembroId());
     }
-
-    public Usuario fromDTO(UsuarioDTO objDto) {
-        return new Usuario(objDto.getId(), objDto.getEmail(), objDto.getPerfil());
-    }
-
 
 }

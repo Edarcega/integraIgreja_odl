@@ -14,11 +14,15 @@ public class PaiMaeDTO implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private String id;
+    private String idMembro;
     private String nome;
 
     public PaiMaeDTO(Membro membro) {
-        this.id = membro.getId();
+        this.idMembro = membro.getId();
         this.nome = membro.getNome();
+    }
+
+    public PaiMaeDTO(String nome) {
+        this.nome = nome;
     }
 }
