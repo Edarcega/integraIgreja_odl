@@ -71,5 +71,4 @@ public class IgrejaResouces {
         return ResponseEntity.noContent().build();
     }
 
-
 }

@@ -36,6 +36,7 @@ com\ibjm\integraigreja\repositories\GrupoRepository.class
 com\ibjm\integraigreja\resources\MembroResouces.class
 com\ibjm\integraigreja\repositories\MembroRepository.class
 com\ibjm\integraigreja\services\FuncaoService.class
+com\ibjm\integraigreja\domain\dto\ConjugeDTO.class
 com\ibjm\integraigreja\resources\FilhoResouces.class
 com\ibjm\integraigreja\resources\IgrejaResouces.class
 com\ibjm\integraigreja\domain\Pessoa.class
