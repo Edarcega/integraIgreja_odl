@@ -53,6 +53,7 @@ public class IgrejaResouces {
 //                igreja.getResponsavel(), igreja.getCargo(), igreja.getCpfresponsavel(), igreja.getTelefoneresponsavel(), StatusIgreja.ATIVO, igreja.getMembros(),
 //                igreja.getGrupos(), igreja.getClasses(), igreja.getFiliais());
         Igreja newIgreja = igreja;
+        newIgreja.setStatusIgreja(StatusIgreja.ATIVO);
         newIgreja.setEndereço(enderecoService.findByCep(igreja.getEndereço().getCep()));
         igreja = service.inserir(newIgreja);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(igreja.getId()).toUri();

@@ -1,12 +1,14 @@
 package com.ibjm.integraigreja.resources;
 
-import com.ibjm.integraigreja.domain.*;
+import com.ibjm.integraigreja.domain.Endereco;
+import com.ibjm.integraigreja.domain.Funcao;
+import com.ibjm.integraigreja.domain.Igreja;
+import com.ibjm.integraigreja.domain.Membro;
 import com.ibjm.integraigreja.domain.dto.ConjugeDTO;
 import com.ibjm.integraigreja.domain.dto.IgrejaDTO;
 import com.ibjm.integraigreja.services.EnderecoService;
 import com.ibjm.integraigreja.services.IgrejaService;
 import com.ibjm.integraigreja.services.MembroService;
-import com.ibjm.integraigreja.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -48,7 +50,7 @@ public class MembroResouces {
         Igreja igreja = igrejaService.consultarPorId(membro.getIgreja().getId());
 
         Membro newMembro = new Membro(null, membro.getNome(), membro.getEmail(), membro.getCpf(), membro.getIdentidade(), membro.getSexo(), membro.getDataDeNascimento(), membro.getNascionalidade(), endereco, membro.getNumero(),
-                membro.getNomeDoPai(), membro.getNomeDaMae(), membro.getProfissao(), membro.getEstadoCivil(), membro.getConjuge(), membro.getDataDoCasamento(), membro.getPossuiFilhos(), membro.getPortadorDeNecessidadesEspeciais(),
+                membro.getComplemento(), membro.getNomeDoPai(), membro.getNomeDaMae(), membro.getProfissao(), membro.getEstadoCivil(), membro.getConjuge(), membro.getDataDoCasamento(), membro.getPossuiFilhos(), membro.getPortadorDeNecessidadesEspeciais(),
                 membro.getDetalhamentoPne(), membro.getFilhos(), membro.getDataCadastro(), membro.getDataDaInscricao(), membro.getBatizado(), membro.getIgrejaAnterior(), new IgrejaDTO(igrejaService.consultarPorId(igreja.getId())),
                 membro.getTipoMembro(), membro.getFuncoes(), membro.getUsuario());
         membro = service.inserir(newMembro);

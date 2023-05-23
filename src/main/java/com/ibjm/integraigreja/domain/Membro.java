@@ -35,6 +35,7 @@ public class Membro {
     private String nascionalidade;
     private Endereco endereco;
     private String numero;
+    private String complemento;
     private String nomeDoPai;
     private String nomeDaMae;
     private String profissao;

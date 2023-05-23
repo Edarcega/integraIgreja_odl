@@ -50,6 +50,7 @@ public class MembroService {
         newMembro.setNascionalidade(membro.getNascionalidade());
         newMembro.setEndereco(membro.getEndereco());
         newMembro.setNumero(membro.getNumero());
+        newMembro.setComplemento(membro.getComplemento());
         newMembro.setNomeDoPai(membro.getNomeDoPai());
         newMembro.setNomeDaMae(membro.getNomeDaMae());
         newMembro.setProfissao(membro.getProfissao());
